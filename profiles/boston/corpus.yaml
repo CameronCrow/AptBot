@@ -1,0 +1,117 @@
+# AptBot discovered-sources corpus — profile: boston
+# Seeded by discovery pass 2026-07-03 (web search: Cambridge/Somerville
+# realtors, university boards, housing groups). Cycles poll `active` entries;
+# `candidate` entries get vetted (one look) before promotion. See
+# profiles/_template/corpus.yaml for the schema.
+
+sources:
+  # --- local realtors / rental shops (unique + early inventory) ---
+  - name: boston-pads
+    url: https://bostonpads.com/somerville-ma-apartments/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: >
+      Biggest local listings network (agent/landlord-direct); also crawl the
+      cambridge-ma-apartments page. High volume — cap at first ~30 newest.
+
+  - name: cambridge-realty-group
+    url: https://cambridgerealty.com/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Local shop covering Cambridge/Somerville/Medford/Watertown/Belmont.
+
+  - name: oxford-street-realty
+    url: https://oxfordstreetrealty.com/rentals
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Cambridge–Somerville rentals + property management (owner-direct inventory).
+
+  - name: maven-realty
+    url: https://mavenrealty.com/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Cambridge/Somerville/Arlington/Medford rentals since 1984.
+
+  - name: red-line-real-estate
+    url: https://redlinerealestate.com/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Cambridge/Arlington/Somerville apartment rentals.
+
+  - name: coldwell-banker-cambridge
+    url: https://www.coldwellbankerhomes.com/ma/cambridge/rentals/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: candidate
+    discovered: 2026-07-03
+    notes: >
+      Big brokerage — inventory likely echoes Zillow/Apartments.com. Vet one
+      run: if everything dedups against portal listings, demote to dead.
+
+  # --- university off-campus boards ---
+  - name: harvard-offcampus
+    url: https://www.harvardhousingoffcampus.com/housing
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Publicly searchable; Cambridge-heavy private-market listings.
+
+  - name: mit-offcampus
+    url: https://www.mitoffcampus.com/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: needs-login
+    discovered: 2026-07-03
+    notes: >
+      Requires MIT Kerberos — inaccessible unless a roommate has MIT
+      affiliation. Keep for the nudge list; do not attempt login.
+
+  # --- boards / groups (rooms + private landlords; strict scam prior) ---
+  - name: reddit-bostonhousing
+    url: https://www.reddit.com/r/bostonhousing/new/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: daily
+    status: active
+    discovered: 2026-07-03
+    notes: Unstructured posts; parse price/beds/area from text; strict scam prior.
+
+  - name: fb-group-boston-housing
+    url: https://www.facebook.com/groups/673389662794979/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: every_run
+    status: candidate
+    discovered: 2026-07-03
+    notes: >
+      "Boston Housing, Rooms, Apartments, Sublets" group — requires Cameron to
+      be a member; vet after he joins (uses his logged-in session anyway).
+      Same strict prior as FB Marketplace; never DM or post.
+
+  - name: fb-group-boston-roommates
+    url: https://www.facebook.com/groups/217304275482131/
+    mode: browser
+    playbook: docs/playbooks/generic-local.md
+    cadence: every_run
+    status: candidate
+    discovered: 2026-07-03
+    notes: Rooms-in-shared focus — relevant to the room_in_shared shape. Membership needed.

@@ -1,0 +1,24 @@
+# AptBot discovered-sources corpus — one file per renter profile
+# (profiles/<slug>/corpus.yaml).
+#
+# sources.yaml holds the DEFAULTS (big portals + craigslist) that exist in
+# every metro. This file holds the LOCALIZED sources the bot discovers at
+# instantiation: local realtors, property managers, listing boards,
+# university off-campus sites, housing groups. Populated by the discovery
+# pass (docs/interview.md, part 2b); refreshed on demand. Cycles poll every
+# `status: active` entry alongside the defaults.
+#
+# Human-prunable: demote noisy entries to `dead`, promote vetted `candidate`s
+# to `active`. Keep entries even when dead — they stop rediscovery.
+#
+# Entry schema:
+#   - name: kebab-case-slug          # becomes Listing.source
+#     url: <listings page>
+#     mode: browser                  # browser | script (rare — only if it has a feed)
+#     playbook: docs/playbooks/generic-local.md   # or a dedicated one
+#     cadence: every_run | daily | weekly
+#     status: active | candidate | needs-login | dead
+#     discovered: YYYY-MM-DD
+#     notes: what it is, why it's worth polling / what to verify
+
+sources: []

@@ -41,7 +41,7 @@ From Cameron's interview answers (2026-07-03):
 | Zillow | browser | Cambridge / Somerville / Charlestown rentals URLs; agent applies filters in UI |
 | Apartments.com | browser | path-encoded filters: `/cambridge-ma/3-bedrooms-under-6000/` |
 | FB Marketplace | browser | most scam-prone; judge applies stricter prior |
-| Local boards | — | none confirmed yet; ask Cameron (MIT/Harvard off-campus boards, FB housing groups) |
+| Local boards | — | superseded by the **discovered-source corpus** (2026-07-03): discovery pass seeded `profiles/boston/corpus.yaml` with 11 localized sources — 7 active (Boston Pads, 4 local realtors, Harvard off-campus board, r/bostonhousing), 3 candidate (Coldwell Banker, 2 FB housing groups — need membership/vetting), 1 needs-login (MIT board, Kerberos-walled) |
 
 ## 4. Push channel
 

@@ -54,9 +54,32 @@ Ask, in order:
 2. **Zillow / Apartments.com / FB Marketplace**: build one rentals URL per
    in-scope area (see each playbook's URL pattern). These are `browser` mode —
    the agent applies fine filters in the UI.
-3. **Local sources**: ask "any local listing sites, university off-campus
-   boards, or housing listservs/groups you already use?" Add each as a
-   `browser` source (write a playbook if it'll be polled regularly).
+3. **Local sources the renter already uses**: ask "any local listing sites,
+   university off-campus boards, or housing listservs/groups you already
+   use?" These go straight into the corpus (part 2b) as `active`.
+
+## Part 2b — Source discovery (fills `corpus.yaml`)
+
+The defaults in `sources.yaml` exist in every metro; the localized long tail
+does not. At instantiation, populate `profiles/<slug>/corpus.yaml` — later
+cycles then just poll corpus + defaults. Procedure:
+
+1. **Search the metro** (a handful of web searches, not an odyssey):
+   - `<city/neighborhoods> apartment rental listings local realtors`
+   - `<university> off-campus housing board` for every nearby university
+   - `<city> housing facebook group / subreddit / listserv`
+   - `<city> property management companies rentals` for the anchor's
+     immediate neighborhoods
+2. **Vet each candidate**: does it list rentals in the target areas and price
+   band? Is it updated (listings from this month)? Is it reachable without an
+   account the renter doesn't have?
+3. **Record every candidate** in `corpus.yaml` (schema in
+   `profiles/_template/corpus.yaml`) — vetted ones as `active`, unverified as
+   `candidate`, login-walled as `needs-login`, junk as `dead` (dead entries
+   prevent rediscovery). Big-brokerage sites whose inventory echoes the
+   portals default to `candidate` with a "verify dedup overlap" note.
+4. **Refresh**: re-run discovery on demand ("refresh the source corpus") or
+   when several corpus sources go dead — not every cycle.
 
 ## Part 3 — Push channel (fills `notify.yaml` + `secrets.yaml`)
 

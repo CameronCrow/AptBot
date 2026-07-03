@@ -51,6 +51,12 @@ Key decisions and their rationale:
   and reference this repo.
 - **Push via ntfy.sh** — zero-account push to phone via a single HTTP POST to a
   private topic. Twilio SMS is a stretch goal, not the v1 path.
+- **Discovered-source corpus (added 2026-07-03)** — `sources.yaml` holds only
+  the metro-independent defaults; at instantiation a discovery pass
+  web-searches the metro for local realtors, property managers, boards, and
+  university off-campus lists and writes `profiles/<slug>/corpus.yaml`
+  (active/candidate/needs-login/dead). Cycles poll corpus + defaults; a
+  generic playbook (`docs/playbooks/generic-local.md`) covers small sites.
 
 ## Phase index
 
