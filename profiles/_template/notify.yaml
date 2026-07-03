@@ -1,0 +1,17 @@
+# AptBot notify — one file per renter profile (profiles/<slug>/notify.yaml).
+#
+# The ntfy topic name IS the secret: anyone who knows it can read and send
+# pushes. It goes in profiles/<slug>/secrets.yaml (gitignored):
+#
+#   ntfy:
+#     topic: aptbot-<slug>-<14 random chars>
+
+ntfy:
+  server: https://ntfy.sh
+  # topic: in secrets.yaml (gitignored) — never commit it
+
+push:
+  min_score: 70               # judge score threshold for a push (tune in Phase 6)
+  high_priority_score: 90     # >= this → ntfy priority "high"
+  flood_guard:
+    max_instant: 3            # per run; overflow gets 1 summary push instead

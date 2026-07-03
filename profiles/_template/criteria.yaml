@@ -1,0 +1,54 @@
+# AptBot criteria — one file per renter profile (profiles/<slug>/criteria.yaml).
+# Produced by the instantiation interview (docs/interview.md).
+#
+# Hard constraints gate listings out deterministically (src/gates.py).
+# Soft constraints only affect the judge's score — they never drop a listing.
+# Ambiguous listings (missing fields) always pass through to the judge.
+
+renter:
+  name: ???
+  notes: ""              # anything the judge should weigh (pets, musician, WFH, ...)
+
+budget:
+  max_rent: ???          # HARD ceiling — the renter's own monthly share, $/mo
+  target_rent: ???       # soft — score bonus below this
+  # Whole-unit listings are gated at max_rent * group.size (the unit ceiling).
+
+group:
+  size: 1                # total people moving in (renter + roommates)
+  seeking:               # which listing shapes are in scope (one or both)
+    - whole_unit         # an entire apartment for the group; unit.beds_min applies
+    - room_in_shared     # a room in an existing shared household; per-room rent applies
+
+location:
+  city: ???              # metro, e.g. "Boston, MA"
+  anchor: ???            # commute anchor, e.g. "One Kendall Square, Cambridge, MA"
+  commute_mode: ???      # walk | bike | transit | drive
+  max_commute_min: ???   # judge estimates commute and scores against this;
+                         # the gate only drops listings clearly in areas_no
+  areas_ok: []           # neighborhoods/towns in scope (empty = judge decides by commute)
+  areas_no: []           # explicitly out — HARD gate when the area is detectable
+
+unit:
+  beds_min: ???          # whole-unit only; usually >= group.size
+  baths_min: ???
+  furnished: any         # any | required | avoid
+
+move_in:
+  earliest: ???          # ISO date — listings available outside the window are gated
+  latest: ???            # (listings with no stated date pass through to the judge)
+
+lease:
+  min_months: 12
+  sublets_ok: false
+
+# Hard NOs. Gated in code when detectable from structured fields, otherwise
+# enforced by the judge. Free-form strings; common answers:
+#   no_in_unit_laundry, no_dishwasher, shared_bath, ground_floor, basement_unit,
+#   no_parking, no_pets_allowed, window_ac_only, electric_baseboard_heat
+dealbreakers: []
+
+# Each adds score, never gates. Common answers:
+#   in_unit_laundry, dishwasher, private_bath, central_air, central_heat,
+#   parking, outdoor_space, natural_light, gym, doorman, pets_ok, utilities_included
+nice_to_haves: []

@@ -1,6 +1,10 @@
 # outputs
 out/
 
+# per-profile state & secrets (ntfy topic is the push-channel secret)
+data/
+profiles/*/secrets.yaml
+
 # notes
 notes/
 

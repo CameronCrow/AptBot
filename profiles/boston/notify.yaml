@@ -1,0 +1,14 @@
+# AptBot notify — profile: boston
+# Topic created + test push delivered 2026-07-03.
+# The topic name IS the secret and this repo's remote is PUBLIC, so the topic
+# lives in secrets.yaml next to this file (gitignored), not here.
+
+ntfy:
+  server: https://ntfy.sh
+  # topic: in secrets.yaml
+
+push:
+  min_score: 70
+  high_priority_score: 90
+  flood_guard:
+    max_instant: 3

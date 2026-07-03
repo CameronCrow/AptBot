@@ -1,0 +1,42 @@
+# AptBot sources — one file per renter profile (profiles/<slug>/sources.yaml).
+# Produced during the instantiation interview (docs/interview.md, part 2).
+#
+# mode: script  → fetched by a repo script, no browser (cheap; runs every cycle)
+# mode: browser → the apartment-scout agent drives logged-in Chrome following
+#                 the playbook in docs/playbooks/<name>.md
+
+sources:
+  - name: craigslist
+    mode: script                # src/fetch_craigslist.py (sapi JSON; RSS is dead)
+    enabled: true
+    site: ???                   # subdomain, e.g. "boston" → boston.craigslist.org
+    area_id: ???                # craigslist numeric area id (see docs/interview.md)
+    params:                     # standard craigslist search params, applied server-side
+      min_price: ???            # floor out scam-priced posts
+      max_price: ???            # unit ceiling = max_rent * group.size (+ ~10% slack)
+      # min_bedrooms: ???       # only for whole_unit-only profiles
+
+  - name: zillow
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/zillow.md
+    urls:                       # one rentals URL per in-scope area; the playbook
+      - ???                     # applies beds/price filters + newest-first in the UI
+
+  - name: apartments_com
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/apartments-com.md
+    urls:
+      - ???                     # supports filters in the path, e.g.
+                                # https://www.apartments.com/cambridge-ma/3-bedrooms-under-6500/
+
+  - name: fb_marketplace
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/fb-marketplace.md
+    urls:
+      - ???                     # e.g. https://www.facebook.com/marketplace/<city>/propertyrentals
+    notes: most scam-prone source; judge applies a stricter prior
+
+  # Add local sources here (university off-campus lists, local listservs, ...)

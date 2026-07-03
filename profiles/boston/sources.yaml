@@ -1,0 +1,47 @@
+# AptBot sources — profile: boston
+# Whole-unit ceiling $6000 (+ slack → 6500 in server-side price filters).
+# Room-in-shared listings live in the same feeds at lower prices, so the
+# floor stays low; gates.py separates the two shapes per listing.
+
+sources:
+  - name: craigslist
+    mode: script                 # src/fetch_craigslist.py (sapi JSON; RSS is dead)
+    enabled: true
+    site: boston                 # boston.craigslist.org
+    area_id: 4                   # verified live 2026-07-03: data.areas["4"].name == "boston"
+    params:
+      min_price: 800             # below this in Boston = scam bait
+      max_price: 6500
+      # no min_bedrooms: rooms-in-shared must stay in scope
+
+  - name: zillow
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/zillow.md
+    urls:                        # playbook applies: price ≤ $6000, 3+ beds
+      - https://www.zillow.com/cambridge-ma/rentals/
+      - https://www.zillow.com/somerville-ma/rentals/
+      - https://www.zillow.com/charlestown-boston-ma/rentals/
+
+  - name: apartments_com
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/apartments-com.md
+    urls:                        # filters encoded in the path
+      - https://www.apartments.com/cambridge-ma/3-bedrooms-under-6000/
+      - https://www.apartments.com/somerville-ma/3-bedrooms-under-6000/
+
+  - name: fb_marketplace
+    mode: browser
+    enabled: true
+    playbook: docs/playbooks/fb-marketplace.md
+    urls:
+      - https://www.facebook.com/marketplace/boston/propertyrentals
+    notes: >
+      Most scam-prone source, but where private 3BRs and rooms-in-shared
+      surface first. Judge applies a stricter prior; playbook filters
+      price/location in the UI.
+
+  # Local candidates surfaced during the interview — none confirmed yet.
+  # Worth asking Cameron: MIT/Harvard off-campus housing boards (often open to
+  # non-affiliates' listings), Boston Pads, local Facebook housing groups.

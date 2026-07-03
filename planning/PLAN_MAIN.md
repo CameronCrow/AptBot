@@ -1,8 +1,16 @@
 # AptBot — Main Plan
 
 An apartment-hunting bot that searches **all** major listing sources, judges each
-listing against Cameron's criteria, deduplicates against what he's already seen,
-and pushes only genuinely new + good matches to his phone.
+listing against a renter's criteria, deduplicates against what they've already seen,
+and pushes only genuinely new + good matches to their phone.
+
+**Instantiable (pivot 2026-07-03):** the bot is not hardcoded to one search.
+Each renter gets a *profile* (`profiles/<slug>/{criteria,sources,notify}.yaml`)
+created by an instantiation interview (`docs/interview.md`) covering rent,
+roommates, commute anchor, private bath, dishwasher, in-unit laundry, central
+heat/cooling, and the rest. All code and playbooks are profile-parameterized
+(`--profile <slug>`). First instance: `profiles/boston` — Cameron's own search
+(anchor: One Kendall Square, Cambridge; group of 3; move-in Aug 1–Sep 1 2026).
 
 ## Architecture (decided)
 
@@ -33,8 +41,10 @@ Key decisions and their rationale:
   (Zillow, Apartments.com, FB Marketplace). These sites have no clean public
   API and actively block headless scrapers; driving Cameron's logged-in Chrome
   session is human-paced, authenticated, and far less brittle.
-- **Craigslist via RSS** — the one source with a cheap machine-readable feed;
-  poll it with a small script instead of burning agent time.
+- **Craigslist via script** — planned as RSS, but RSS is dead (403, verified
+  2026-07-03); the poller now uses Craigslist's unofficial `sapi` JSON search
+  endpoint (verified working). Still no browser and cheap enough to run every
+  cycle; the browser playbook is the fallback if `sapi` changes.
 - **This repo holds**: the plan, the Listing schema, the RSS poller, the dedup
   store, the notify helper, per-site search playbooks, and the criteria spec.
   The *agent definition + skill + schedule* live in Cameron's Claude workforce
@@ -55,8 +65,9 @@ Key decisions and their rationale:
 
 ## Current State
 
-- Repo scaffolded from PROJECT_TEMPLATE; full plan written (all phase files +
-  TODO). No implementation yet.
-- Next action: Phase 1 — Cameron supplies search criteria (budget, location /
-  commute anchor, beds/baths, move-in date, dealbreakers) so `criteria.yaml`
-  can be filled in.
+- Phase 1 done (as instantiable-profile system): `profiles/_template/`,
+  `docs/interview.md`, `profiles/boston/` live; ntfy topic created and test
+  push delivered.
+- Open with Cameron: subscribe to the ntfy topic on his phone; confirm the
+  `# ASSUMPTION` lines in `profiles/boston/criteria.yaml` (commute limit,
+  dealbreakers, lease terms).

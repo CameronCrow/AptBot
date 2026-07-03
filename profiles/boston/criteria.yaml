@@ -1,0 +1,53 @@
+# AptBot criteria — profile: boston (Cameron, One Kendall Square)
+# From interview 2026-07-03. Lines marked ASSUMPTION were not explicitly
+# answered — revisit with Cameron.
+
+renter:
+  name: Cameron
+  notes: "Moving with 2 roommates; searching as a group of 3."
+
+budget:
+  max_rent: 2000          # hard ceiling, Cameron's own share $/mo
+  target_rent: 1700       # ASSUMPTION: "good deal" point not asked; ~15% under ceiling
+  # whole-unit ceiling = 2000 * 3 = $6000/mo
+
+group:
+  size: 3
+  seeking:
+    - whole_unit          # 3BR+ for the group
+    - room_in_shared      # also open to rooms in shared households
+
+location:
+  city: "Boston, MA"
+  anchor: "One Kendall Square, Cambridge, MA 02139"
+  commute_mode: transit   # ASSUMPTION: mode not asked; Kendall is Red-Line adjacent
+  max_commute_min: 30     # ASSUMPTION: limit not asked; 30 min door-to-door default
+  areas_ok:               # ASSUMPTION: derived from the 30-min-to-Kendall radius
+    - Cambridge (Kendall, East Cambridge, Central, Inman, Mid-Cambridge, Porter)
+    - Somerville (Union, Spring Hill, Winter Hill, Davis, East Somerville)
+    - Boston (Charlestown, West End, Beacon Hill, North End)
+    - Medford (Hillside / Tufts area)
+  areas_no: []
+
+unit:
+  beds_min: 3             # whole-unit only: one bedroom each
+  baths_min: 1            # ASSUMPTION: not asked; 1.5+ scored via nice_to_haves
+  furnished: any
+
+move_in:
+  earliest: 2026-08-01
+  latest: 2026-09-01      # Boston 9/1 turnover — most inventory lands here
+
+lease:
+  min_months: 12          # ASSUMPTION: not asked; standard Boston lease
+  sublets_ok: false       # ASSUMPTION: not asked
+
+dealbreakers: []          # ASSUMPTION: none confirmed yet — interview part 8 pending
+
+nice_to_haves:            # ASSUMPTION: from Cameron's interview-topic examples,
+  - in_unit_laundry       # not individually confirmed as his preferences
+  - dishwasher
+  - central_air
+  - central_heat
+  - private_bath          # matters for room_in_shared listings
+  - second_bathroom       # matters for 3-person whole units
