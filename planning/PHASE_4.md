@@ -20,7 +20,7 @@
 
 ## Checklist
 
-- [ ] Write `src/notify.py` + test against the live topic
-- [ ] Implement flood guard (top-3 + summary)
-- [ ] Implement `data/alerts.log` trail
-- [ ] End-to-end: fake listing → formatted push arrives on phone with photo + click-through
+- [x] Write `src/notify.py` + test against the live topic (channel test sent 2026-07-03)
+- [x] Implement flood guard (top-3 + summary; cap from `notify.yaml`)
+- [x] Implement `data/<profile>/alerts.log` trail (also records dry-runs and summary items)
+- [x] End-to-end: fake listing → formatted push sent to the topic with photo attach + click-through (verified in ntfy's response; on-phone confirmation pending Cameron subscribing to the topic)
