@@ -27,12 +27,21 @@ Listing:
 secondary key `(price, beds, normalized-address)` to catch cross-postings
 (same unit on Zillow *and* Craigslist).
 
-## 2. Craigslist RSS poller → `src/fetch_craigslist.py`
+## 2. Craigslist poller → `src/fetch_craigslist.py`
 
-- ~40 lines: fetch the pre-filtered RSS feed(s) from `sources.yaml`, parse
-  entries → `Listing` objects, emit JSON to stdout.
-- Pure stdlib + `feedparser`. No browser, no login. Cheap enough to run every
-  agent cycle (and more often later if wanted).
+> **Deviation from plan:** Craigslist RSS is dead (`format=rss` → 403,
+> verified 2026-07-03), so the poller instead hits the unofficial
+> `sapi.craigslist.org/web/v8/postings/search/full` JSON endpoint the search
+> SPA uses, decoding its compact item format (offsets in `data.decode`,
+> typed sub-arrays for slug/images/beds). Verified live: 360/360 Boston items
+> parsed; listing URLs and image URLs resolve. Pure stdlib — no `feedparser`.
+> If the endpoint changes, `docs/playbooks/craigslist.md` is the browser-mode
+> fallback.
+
+- Reads the `craigslist` source (site, `area_id`, price params) from the
+  profile's `sources.yaml`; emits `Listing` JSON to stdout; unparseable items
+  are skipped and counted on stderr. No browser, no login — cheap enough to
+  run every cycle.
 
 ## 3. Browser playbooks → `docs/playbooks/<source>.md`
 
@@ -49,10 +58,11 @@ usually adapts on its own; the playbook just captures what's stable.
 
 ## Checklist
 
-- [ ] Write `src/schema.py` with `Listing` + `fingerprint()`
-- [ ] Write `src/fetch_craigslist.py`; verify against the live feed
-- [ ] Write playbook: Zillow
-- [ ] Write playbook: Apartments.com
-- [ ] Write playbook: Facebook Marketplace
-- [ ] Write playbook(s): local/university sources from Phase 1
-- [ ] Manual smoke test: one agent-driven browse of each source produces valid `Listing` JSON
+- [x] Write `src/schema.py` with `Listing` + `fingerprint()` (+ `fuzzy_key()`, JSON I/O helpers; `src/config.py` profile loader)
+- [x] Write `src/fetch_craigslist.py`; verified live against sapi (360/360 parsed, URLs + images resolve)
+- [x] Write playbook: Zillow
+- [x] Write playbook: Apartments.com
+- [x] Write playbook: Facebook Marketplace
+- [x] Write playbook: Craigslist browser fallback (sapi contingency)
+- [ ] Playbook(s) for local sources — blocked on Phase 1 follow-up (none confirmed by Cameron yet)
+- [ ] Manual smoke test: one agent-driven browse of each browser source → valid `Listing` JSON (folded into the Phase 5 dry run — needs the Chrome session)
