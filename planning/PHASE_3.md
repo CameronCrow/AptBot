@@ -37,7 +37,8 @@ The agent scores each surviving listing 0–100 with a structured verdict:
 
 ## Checklist
 
-- [ ] Write `src/store.py` + `tests/test_store.py` (dedup, cross-post collapse, price-drop)
-- [ ] Write `src/gates.py` + tests (ambiguous listings pass through)
-- [ ] Write `docs/judge-rubric.md`
-- [ ] Calibration pass: run rubric over ~20 real listings, eyeball scores with Cameron, adjust
+- [x] Write `src/store.py` + `tests/test_store.py` (dedup, cross-post collapse, price-drop)
+- [x] Write `src/gates.py` + tests (ambiguous listings pass through) — gates are shape-aware: a listing survives if it plausibly fits *any* sought shape (whole_unit / room_in_shared)
+- [x] Write `docs/judge-rubric.md`
+- [x] Live smoke: fetch → gates → filter-new on real Boston data (360 → 161 gated survivors → 161 new on cold store)
+- [ ] Calibration pass: run rubric over ~20 real listings, eyeball scores with Cameron, adjust (needs the Phase 5 browser run)

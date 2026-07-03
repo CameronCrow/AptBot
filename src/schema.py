@@ -73,8 +73,9 @@ def normalize_address(addr: str) -> str:
 
 
 def read_listings(fp) -> list[Listing]:
-    """Read listings from a file object holding a JSON array or JSON lines."""
-    text = fp.read().strip()
+    """Read listings from a file object holding a JSON array or JSON lines.
+    Tolerates a UTF-8 BOM (PowerShell 5.1's `Out-File -Encoding utf8`)."""
+    text = fp.read().lstrip("﻿").strip()
     if not text:
         return []
     if text.startswith("["):
