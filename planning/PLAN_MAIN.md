@@ -65,9 +65,16 @@ Key decisions and their rationale:
 
 ## Current State
 
-- Phase 1 done (as instantiable-profile system): `profiles/_template/`,
-  `docs/interview.md`, `profiles/boston/` live; ntfy topic created and test
-  push delivered.
-- Open with Cameron: subscribe to the ntfy topic on his phone; confirm the
-  `# ASSUMPTION` lines in `profiles/boston/criteria.yaml` (commute limit,
-  dealbreakers, lease terms).
+- **Phases 1–5 implemented** (2026-07-03). Code + config in this repo (26
+  tests passing; craigslist pipeline verified live end-to-end); the
+  `apartment-scout` agent and `apartment-hunt` skill live in the Workforce
+  repo's new Housing Dept and are wired into `~/.claude/`.
+- Open with Cameron before arming:
+  1. Install the ntfy app and subscribe to the topic in
+     `profiles/boston/secrets.yaml`.
+  2. Confirm the `# ASSUMPTION` lines in `profiles/boston/criteria.yaml`
+     (commute limit 30 min transit, dealbreakers, lease terms, target rent).
+  3. Supervised dry run with his Chrome session (browser sources + judge
+     calibration over ~20 listings).
+  4. Register the schedule (resolve cloud-vs-local Chrome) → arm.
+- Phase 6 (hardening) waits for ~2 weeks of live runs.

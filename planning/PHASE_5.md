@@ -43,10 +43,31 @@ the run — log it, continue, and include it in the run summary so it surfaces.
 - Full cycle with `--dry-run` (judge + log, no push), review `runs.log` and
   would-have-pushed list with Cameron, then arm it.
 
+## Status (2026-07-03)
+
+- **Agent created**: `apartment-scout` in a new single-employee **Housing Dept**
+  (`Workforce/agents/housing/apartment-scout/`, live via the `~/.claude/agents`
+  junction). Browser posture copied from canvas-syncer (never logs in, never
+  contacts sellers). Directors' org charts + workforce README updated.
+- **Skill created**: `apartment-hunt` (`Workforce/skills/apartment-hunt/`) —
+  cycle mode implements the 9-step run loop incl. failure policy and a
+  first-run cap (~40 newest judged on a cold store); setup mode implements the
+  instantiation interview from `docs/interview.md`.
+- **Deterministic dry run done**: fetch → gates → filter-new → judged 10 newest
+  per rubric → `notify --dry-run` (2 would-push: Belmont 4BR $3,950 score 74,
+  Watertown 3BR $3,500 score 71) → `runs.log` + `alerts.log` written. Store
+  deliberately left unmarked so the supervised run re-processes today's
+  listings. Browser sources not exercised (needs Cameron's Chrome session).
+- **Schedule deliberately not registered yet** (Cameron away when asked;
+  defaulted to the plan's gate: supervised dry run first, then register + arm).
+  Cloud caveat stands: scheduled cloud runs won't have logged-in Chrome —
+  likely shape is RSS/sapi-only cloud runs + a push nudging a local browser
+  run, or local scheduling. Decide at registration.
+
 ## Checklist
 
-- [ ] Create `apartment-scout` agent
-- [ ] Write `apartment-hunt` skill implementing the run loop
-- [ ] Failure policy verified (kill one source mid-run → run completes)
-- [ ] Register scheduled routine; resolve the cloud-vs-local-browser caveat
-- [ ] Dry run reviewed with Cameron → arm live pushes
+- [x] Create `apartment-scout` agent (housing dept, no director)
+- [x] Write `apartment-hunt` skill implementing the run loop (+ setup/interview mode)
+- [x] Failure policy encoded in skill + demonstrated in dry run (browser sources recorded as errored, run completed); full kill-a-source test during the supervised browser run
+- [ ] Supervised dry run with Cameron: browser sources via his Chrome, review would-have-pushed list, calibrate judge (~20 listings)
+- [ ] Register scheduled routine; resolve the cloud-vs-local-browser caveat → arm live pushes
