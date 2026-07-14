@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 6 — Hardening (stretch)
 
 Only after the v1 loop has run for a week or two. Candidates, in rough order
@@ -19,3 +24,9 @@ of value:
 
 - [ ] Decide which hardening items are worth it after ~2 weeks of live runs
 - [ ] Implement chosen items (each gets its own mini-checklist here)
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_5|PHASE_5]]
+- [[Repos/AptBot/planning/TODO|TODO]]

@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 3 — Judge & dedup
 
 The judge step is the reason this is an agent and not a scraper. Deterministic
@@ -42,3 +47,10 @@ The agent scores each surviving listing 0–100 with a structured verdict:
 - [x] Write `docs/judge-rubric.md`
 - [x] Live smoke: fetch → gates → filter-new on real Boston data (360 → 161 gated survivors → 161 new on cold store)
 - [ ] Calibration pass: run rubric over ~20 real listings, eyeball scores with Cameron, adjust (needs the Phase 5 browser run)
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_2|PHASE_2]]
+- [[Repos/AptBot/planning/PHASE_4|PHASE_4]]
+- [[Repos/AptBot/docs/judge-rubric|judge-rubric]]

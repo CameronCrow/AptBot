@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Playbook: Facebook Marketplace (property rentals)
 
 Browser-mode source, and the reason it must be Cameron's logged-in Chrome —
@@ -53,3 +58,11 @@ Card grid is thin; open the detail panel (click, stays on-page) for each new car
 - Scam tells to capture verbatim in `description`/`raw` for the judge:
   price far below area rate, stock/watermarked photos, "text me at …",
   landlord abroad, deposit-before-viewing.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/judge-rubric|judge-rubric]]
+- [[Repos/AptBot/docs/playbooks/zillow|zillow]]
+- [[Repos/AptBot/docs/playbooks/craigslist|craigslist]]
+- [[Repos/AptBot/docs/playbooks/generic-local|generic-local]]

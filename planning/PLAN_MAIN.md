@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[AptBot]]"
+---
 # AptBot — Main Plan
 
 An apartment-hunting bot that searches **all** major listing sources, judges each
@@ -84,3 +89,10 @@ Key decisions and their rationale:
      calibration over ~20 listings).
   4. Register the schedule (resolve cloud-vs-local Chrome) → arm.
 - Phase 6 (hardening) waits for ~2 weeks of live runs.
+
+## Related
+
+- [[Repos/AptBot/planning/TODO|TODO]]
+- [[Repos/AptBot/planning/PHASE_1|PHASE_1]]
+- [[Repos/AptBot/planning/PHASE_5|PHASE_5]]
+- [[Repos/AptBot/planning/PHASE_6|PHASE_6]]

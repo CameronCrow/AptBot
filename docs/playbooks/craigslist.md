@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Playbook: Craigslist (fallback only)
 
 Craigslist is normally **script-mode** — `src/fetch_craigslist.py` hits the
@@ -41,3 +46,10 @@ Newest-first; the post id is the digits at the end of each result URL
 - Ghost listings from brokers ("1000s of apartments — call us!") — extract
   anyway; the judge's scam/junk pass drops them.
 - If a CAPTCHA appears, stop the source and report; don't retry.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/playbooks/zillow|zillow]]
+- [[Repos/AptBot/docs/playbooks/apartments-com|apartments-com]]
+- [[Repos/AptBot/docs/playbooks/fb-marketplace|fb-marketplace]]

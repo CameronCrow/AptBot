@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Playbook: Zillow (rentals)
 
 Browser-mode source. The agent drives Cameron's logged-in Chrome; being logged
@@ -54,3 +59,10 @@ Per card (open the detail page only when card data is incomplete):
 - Zillow bundles Trulia/HotPads inventory — cross-posting dedup handles echoes.
 - CAPTCHA / "Press & Hold" wall: stop this source, mark it errored in the run
   summary; do not retry in a loop.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/playbooks/apartments-com|apartments-com]]
+- [[Repos/AptBot/docs/playbooks/craigslist|craigslist]]
+- [[Repos/AptBot/docs/playbooks/fb-marketplace|fb-marketplace]]

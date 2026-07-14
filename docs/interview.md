@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # AptBot instantiation interview
 
 AptBot is instantiable: each renter gets a **profile** under `profiles/<slug>/`
@@ -99,3 +104,9 @@ cycles then just poll corpus + defaults. Procedure:
 2. Smoke test retrieval: `python src/fetch_craigslist.py --profile <slug>`
    should emit Listing JSON.
 3. Schedule (or reuse) the scouting routine pointing at the new profile.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/judge-rubric|judge-rubric]]
+- [[Repos/AptBot/planning/PHASE_1|PHASE_1]]

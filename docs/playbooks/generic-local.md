@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Playbook: generic local source (realtors, property managers, boards)
 
 For corpus entries (`profiles/<slug>/corpus.yaml`) that don't have a
@@ -46,3 +51,10 @@ Fill what the site shows; missing fields pass to the judge:
   the corpus entry (`status: dead`) in the run summary.
 - **A corpus source failing never aborts the run** — same failure policy as
   every other source.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/playbooks/fb-marketplace|fb-marketplace]]
+- [[Repos/AptBot/docs/playbooks/zillow|zillow]]
+- [[Repos/AptBot/docs/playbooks/apartments-com|apartments-com]]

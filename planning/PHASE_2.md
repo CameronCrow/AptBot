@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 2 — Retrieval
 
 Two retrieval modes normalize into one `Listing` schema.
@@ -66,3 +71,10 @@ usually adapts on its own; the playbook just captures what's stable.
 - [x] Write playbook: Craigslist browser fallback (sapi contingency)
 - [ ] Playbook(s) for local sources — blocked on Phase 1 follow-up (none confirmed by Cameron yet)
 - [ ] Manual smoke test: one agent-driven browse of each browser source → valid `Listing` JSON (folded into the Phase 5 dry run — needs the Chrome session)
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_1|PHASE_1]]
+- [[Repos/AptBot/planning/PHASE_3|PHASE_3]]
+- [[Repos/AptBot/docs/playbooks/zillow|zillow playbook]]

@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Playbook: Apartments.com
 
 Browser-mode source. Filters are path-encoded, so the `urls:` in the profile's
@@ -44,3 +49,10 @@ ignore sort order — skip cards labeled *Sponsored* when detecting "new".
   meets `beds_min`, and record that plan's price/beds.
 - Pagination resets sort occasionally — re-check the sort dropdown on page 2.
 - Phone-number interstitials and tour-scheduling modals: close, never submit.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/playbooks/zillow|zillow]]
+- [[Repos/AptBot/docs/playbooks/fb-marketplace|fb-marketplace]]
+- [[Repos/AptBot/docs/playbooks/generic-local|generic-local]]

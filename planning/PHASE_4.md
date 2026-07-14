@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 4 — Notify
 
 ## 1. Push helper → `src/notify.py`
@@ -24,3 +29,9 @@
 - [x] Implement flood guard (top-3 + summary; cap from `notify.yaml`)
 - [x] Implement `data/<profile>/alerts.log` trail (also records dry-runs and summary items)
 - [x] End-to-end: fake listing → formatted push sent to the topic with photo attach + click-through (verified in ntfy's response; on-phone confirmation pending Cameron subscribing to the topic)
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_3|PHASE_3]]
+- [[Repos/AptBot/planning/PHASE_5|PHASE_5]]

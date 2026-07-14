@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]"
+---
 # Judge rubric
 
 The judge is the LLM step: the apartment-scout agent scores every listing that
@@ -80,3 +85,9 @@ silently lost).
       browser run for a realistic sample).
 - Tuning knobs live in `notify.yaml` (`min_score`, `high_priority_score`);
   weight changes belong here, in prose, so the judge and humans stay in sync.
+
+## Related
+
+- [[Repos/AptBot/docs/DOCS_MAIN|DOCS_MAIN]]
+- [[Repos/AptBot/docs/interview|interview]]
+- [[Repos/AptBot/planning/PHASE_3|PHASE_3]]

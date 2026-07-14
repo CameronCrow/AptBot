@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 5 — Orchestration
 
 Wire the pieces into Cameron's Claude workforce. The repo stays the source of
@@ -71,3 +76,10 @@ the run — log it, continue, and include it in the run summary so it surfaces.
 - [x] Failure policy encoded in skill + demonstrated in dry run (browser sources recorded as errored, run completed); full kill-a-source test during the supervised browser run
 - [ ] Supervised dry run with Cameron: browser sources via his Chrome, review would-have-pushed list, calibrate judge (~20 listings)
 - [ ] Register scheduled routine; resolve the cloud-vs-local-browser caveat → arm live pushes
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_4|PHASE_4]]
+- [[Repos/AptBot/planning/PHASE_6|PHASE_6]]
+- [[Repos/AptBot/docs/interview|interview]]

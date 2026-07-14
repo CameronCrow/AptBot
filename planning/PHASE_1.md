@@ -1,3 +1,8 @@
+---
+type: reference
+tags: [repo/AptBot]
+up: "[[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]"
+---
 # Phase 1 — Criteria & source inventory
 
 > **Pivot (2026-07-03):** during criteria collection Cameron redirected the
@@ -61,3 +66,10 @@ the ntfy app and subscribe (topic name is in that file).
 - [x] Write `profiles/boston/notify.yaml`
 - [ ] Cameron: install ntfy app, subscribe to topic, confirm push arrives
 - [ ] Cameron: confirm the `# ASSUMPTION` lines in `criteria.yaml`
+
+## Related
+
+- [[Repos/AptBot/planning/PLAN_MAIN|PLAN_MAIN]]
+- [[Repos/AptBot/planning/PHASE_2|PHASE_2]]
+- [[Repos/AptBot/docs/interview|interview]]
+- [[Repos/AptBot/planning/TODO|TODO]]
